@@ -1,0 +1,36 @@
+﻿@page
+@model Project.Pages.CreateMileageModel
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить страны-производители</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2>Добавить пробег для Т/С</h2>
+
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="Mileage.Name" class="control-label"></label>
+                <input asp-for="Mileage.Name" class="form-control" />
+                <span asp-validation-for="Mileage.Name" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+        </form>
+
+        <h2>Список всех пробегов</h2>
+        <ul class="list-group">
+            @foreach (var Mileages in Model.Mileages)
+            {
+                <li class="list-group-item">@Mileages.Name</li>
+            }
+        </ul>
+    </div>
+</body>
+</html>
